@@ -203,12 +203,12 @@ def evaluate_paper(keyword: str, title: str, abstract: str, full_text: str = "")
     """
     Complete AI Scientist evaluation pipeline (Optimized for performance):
     1. Ensemble of 3 independent reviews at varying temperatures (Reduced from 5 for speed).
-    2. Each review undergoes 1 reflection loop (gpt-4o model quality preserved).
+    2. Each review undergoes 2 reflection loops (gpt-4o model quality preserved).
     3. Meta-review (Area Chair) synthesis.
     """
     # Varying temperatures give the reviewers diverse perspectives (AI Scientist ensemble design)
-    reviewer_temperatures = [0.1, 0.5, 0.9]
-    num_reflections = 1
+    reviewer_temperatures = [0.3, 0.7, 1.0]
+    num_reflections = 2
 
     # Use full text if available, otherwise fallback to abstract
     content_to_review = full_text if full_text else abstract
