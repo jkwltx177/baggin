@@ -202,21 +202,22 @@ def quick_relevance_check(keyword: str, title: str, abstract: str) -> bool:
 def evaluate_paper(keyword: str, title: str, abstract: str, full_text: str = "") -> EvaluationResult:
     """
     Complete AI Scientist evaluation pipeline (Optimized for performance):
-    1. Ensemble of 3 independent reviews (Reduced from 5 for speed).
+    1. Ensemble of 3 independent reviews at varying temperatures (Reduced from 5 for speed).
     2. Each review undergoes 1 reflection loop (gpt-4o model quality preserved).
     3. Meta-review (Area Chair) synthesis.
     """
-    num_ensemble = 3
+    # Varying temperatures give the reviewers diverse perspectives (AI Scientist ensemble design)
+    reviewer_temperatures = [0.1, 0.5, 0.9]
     num_reflections = 1
-    
+
     # Use full text if available, otherwise fallback to abstract
     content_to_review = full_text if full_text else abstract
-    
+
     ensemble_reviews = []
-    
-    for i in range(num_ensemble):
-        logger.info(f"Generating ensemble review {i+1}/{num_ensemble}...")
-        review = generate_review_draft(keyword, title, content_to_review, temperature=0.1)
+
+    for i, temp in enumerate(reviewer_temperatures):
+        logger.info(f"Generating ensemble review {i+1}/{len(reviewer_temperatures)} (temperature={temp})...")
+        review = generate_review_draft(keyword, title, content_to_review, temperature=temp)
         
         for r in range(num_reflections):
             logger.info(f"  Reflection loop {r+1}/{num_reflections} for review {i+1}...")
