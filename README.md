@@ -2,6 +2,18 @@
 
 논문 자동 수집·요약, 사내 문서 비교 보고서 생성을 위한 마이크로서비스 플랫폼입니다.
 
+> 본 레포는 팀 프로젝트([yuvnn/BAEGIN](https://github.com/yuvnn/BAEGIN))의 **개인 fork**이며, 아래 커밋 기여 수치는 전체 프로젝트 기준입니다.
+
+## 담당 역할 (커밋 실증)
+
+4인 팀 프로젝트입니다. 제(김주환, [@jkwltx177](https://github.com/jkwltx177)) 담당은 커밋 이력으로 확인할 수 있습니다 — 프로젝트 기간(~2026-04-15) 기준 **총 47 / 90 커밋(팀 내 최다)**, 계정 `kimjuhwan` + `jkwltx177`.
+
+- **논문 평가 파이프라인 (`paper-service`, 18/26 커밋)** — The AI Scientist 방식 리뷰어 앙상블 평가(`evaluator`)·요약(`summarizer`)·Kafka consumer·PDF 파서 구현 (`d13c565`, `f51eedd`). 저비용 사전 필터(gpt-4o-mini desk rejection)와 MariaDB 중복 차단을 본평가 앞단에 배치해 평가 API 비용을 절감 (`7cf675e`)
+- **챗봇 서비스 단독 개발 (`chatbot-service`, 3/3 커밋)**
+- **The AI Scientist 평가 코드 리서치 문서 단독 작성** — Sakana AI `perform_review.py` 분석 ([docs/ai-scientist.md](docs/ai-scientist.md), `f51eedd`)
+
+인증·게이트웨이·서비스 디스커버리 등 Spring 계열 인프라와 모니터링·사내 문서 비교 기능은 팀 동료들이 담당했습니다.
+
 ---
 
 ## 실행 방법
