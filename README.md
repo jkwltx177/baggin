@@ -1,6 +1,6 @@
 # BAEGIN — Paper Monitoring Platform
 
-논문 자동 수집·요약, 사내 문서 비교 보고서 생성을 위한 마이크로서비스 플랫폼입니다.
+논문 자동 평가·수집·요약, 사내 문서 비교 보고서 생성을 위한 마이크로서비스 플랫폼입니다.
 
 > 본 레포는 팀 프로젝트([yuvnn/BAEGIN](https://github.com/yuvnn/BAEGIN))의 **개인 fork**이며, 아래 커밋 기여 수치는 전체 프로젝트 기준입니다.
 
